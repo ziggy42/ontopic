@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "author": "Andrea Pivetta",
   "license": "ISC",

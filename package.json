@@ -1,0 +1,21 @@
+{
+  "name": "ontopic",
+  "version": "1.0.0",
+  "description": "Display SNS messages on your terminal",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "author": "Andrea Pivetta",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "jest": "^25.1.0"
+  },
+  "dependencies": {
+    "argparse": "^1.0.10",
+    "aws-sdk": "^2.610.0",
+    "uuid": "^3.4.0"
+  }
+}

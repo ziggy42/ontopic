@@ -1,8 +1,9 @@
 {
   "name": "ontopic",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Display SNS messages on your terminal",
-  "main": "index.js",
+  "main": "cli.js",
+  "bin": "./cli.js",
   "scripts": {
     "start": "node index.js",
     "test": "jest",

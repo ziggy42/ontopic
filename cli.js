@@ -1,10 +1,13 @@
+#!/usr/bin/env node
+
 const { ArgumentParser } = require('argparse');
 const { listen } = require('./src/ontopic');
+const { version } = require('./package.json');
 
 const DEFAULT_AWS_REGION = 'eu-central-1';
 
 const parser = new ArgumentParser({
-    version: '0.0.1',
+    version,
     addHelp: true,
     description: 'Listen to SNS notifications'
 });

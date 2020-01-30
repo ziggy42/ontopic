@@ -13,7 +13,7 @@ const listen = async ({ topicArn, region }) => {
 
     SubscriptionArn = subscription.arn;
 
-    console.log('Listening....');
+    console.log(`Listening to ${topicArn}...`);
     // eslint-disable-next-line no-constant-condition
     while (true) {
         const messages = await getMessages(queue.url);

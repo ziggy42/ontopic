@@ -3,13 +3,13 @@ const { getAccountId, createQueue, subscribeToQueue, deleteQueue, deleteSubscrip
 let QueueUrl;
 let SubscriptionArn;
 
-const listen = async (topic, region) => {
+const listen = async ({ topicArn, region }) => {
     const accountId = await getAccountId();
-    const queue = await createQueue(topic, region, accountId);
+    const queue = await createQueue(topicArn, region, accountId);
 
     QueueUrl = queue.url;
 
-    const subscription = await subscribeToQueue(topic, queue.arn);
+    const subscription = await subscribeToQueue(topicArn, queue.arn);
 
     SubscriptionArn = subscription.arn;
 
@@ -21,20 +21,18 @@ const listen = async (topic, region) => {
     }
 };
 
-['SIGHUP', 'SIGINT', 'SIGQUIT', 'SIGILL', 'SIGTRAP', 'SIGABRT', 'SIGBUS', 'SIGFPE', 'SIGUSR1', 'SIGSEGV', 'SIGUSR2', 'SIGTERM'].forEach((sig) => {
-    process.on(sig, async () => {
+['SIGHUP', 'SIGINT', 'SIGQUIT', 'SIGABRT', 'SIGTERM'].forEach((signal) => process.on(signal, async () => {
+    if (SubscriptionArn) {
+        console.log('Deleting ' + SubscriptionArn);
+        await deleteSubscription(SubscriptionArn);
+    }
 
-        if (SubscriptionArn) {
-            console.log('Deleting ' + SubscriptionArn);
-            await deleteSubscription(SubscriptionArn);
-        }
-        if (QueueUrl) {
-            console.log('Deleting ' + QueueUrl);
-            await deleteQueue(QueueUrl);
-        }
+    if (QueueUrl) {
+        console.log('Deleting ' + QueueUrl);
+        await deleteQueue(QueueUrl);
+    }
 
-        process.exit(0);
-    });
-});
+    process.exit(0);
+}));
 
 module.exports = { listen };

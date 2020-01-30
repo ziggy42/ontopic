@@ -22,10 +22,8 @@ parser.addArgument('topicArn', {
 });
 
 (async () => {
-    const { topicArn, region } = parser.parseArgs();
-
     try {
-        await listen(topicArn, region);
+        await listen(parser.parseArgs());
     } catch (err) {
         console.dir(err, { colors: true });
     }

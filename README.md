@@ -1,3 +1,5 @@
+![Node.js CI](https://github.com/ziggy42/ontopic/workflows/Node.js%20CI/badge.svg)
+
 # ontopic
 
 `ontopic` let's you listen to [SNS](https://aws.amazon.com/sns) notification from you command line.  

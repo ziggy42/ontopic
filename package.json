@@ -4,6 +4,12 @@
   "description": "Display SNS messages on your terminal",
   "main": "cli.js",
   "bin": "./cli.js",
+  "keywords": [
+    "aws",
+    "sns",
+    "sqs",
+    "cli"
+  ],
   "scripts": {
     "start": "node index.js",
     "test": "jest",

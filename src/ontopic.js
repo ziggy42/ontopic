@@ -17,7 +17,7 @@ const listen = async ({ topicArn, region }) => {
     // eslint-disable-next-line no-constant-condition
     while (true) {
         const messages = await getMessages(queue.url);
-        console.dir(messages, { colors: true });
+        messages.forEach((message) => console.dir(message, { colors: true }));
     }
 };
 

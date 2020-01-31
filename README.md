@@ -24,7 +24,7 @@ ontopic <TOPIC_ARN>
 For more see `--help`:
 ```
 $ ontopic --help
-usage: cli.js [-h] [-v] [-r REGION] topicArn
+usage: ontopic [-h] [-v] [-r REGION] topicArn
 
 Listen to SNS notifications
 

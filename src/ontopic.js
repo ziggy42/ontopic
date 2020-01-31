@@ -1,4 +1,5 @@
 const { getAccountId, createQueue, subscribeToQueue, deleteQueue, deleteSubscription, getMessages } = require('./aws');
+const { logMessage } = require('./logger');
 
 let QueueUrl;
 let SubscriptionArn;
@@ -13,11 +14,11 @@ const listen = async ({ topicArn, region }) => {
 
     SubscriptionArn = subscription.arn;
 
-    console.log(`Listening to ${topicArn}...`);
+    console.log('Waiting for messages..');
     // eslint-disable-next-line no-constant-condition
     while (true) {
         const messages = await getMessages(queue.url);
-        messages.forEach((message) => console.dir(message, { colors: true }));
+        messages.forEach((message) => logMessage(message));
     }
 };
 

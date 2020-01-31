@@ -6,5 +6,7 @@
 It does so by creating an [SQS](https://aws.amazon.com/sqs) queue subscribed to the topic and polling it.  
 You must have your `AWS` account correctly configured on your machine for `ontopic` to work.
 
+![Demo](.github/demo/demo.gif)
+
 WIP.
 

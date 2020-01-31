@@ -1,6 +1,6 @@
 {
   "name": "ontopic",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Display SNS messages on your terminal",
   "main": "cli.js",
   "bin": "./cli.js",

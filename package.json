@@ -11,7 +11,7 @@
     "cli"
   ],
   "scripts": {
-    "start": "node index.js",
+    "start": "node cli.js",
     "test": "jest",
     "lint": "eslint ."
   },

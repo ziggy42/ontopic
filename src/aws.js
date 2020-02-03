@@ -6,6 +6,12 @@ const sqs = new SQS();
 const sns = new SNS();
 const sts = new STS();
 
+const MAXIMUM_WAIT_TIME_SECONDS = 20;
+
+const tags = {
+    'ontopic': 'This resource was automatically created by ontopic and can be safely deleted'
+};
+
 const getAccountId = async () => {
     const { Account } = await sts.getCallerIdentity().promise();
     return Account;
@@ -32,7 +38,8 @@ const createQueue = async (topicArn, region, accountId) => {
                 ]
             })
         },
-        QueueName
+        QueueName,
+        tags
     }).promise();
 
     return {
@@ -58,7 +65,7 @@ const deleteSubscription = async (SubscriptionArn) => sns.unsubscribe({ Subscrip
 const getMessages = async (QueueUrl) => {
     const { Messages } = await sqs.receiveMessage({
         QueueUrl,
-        WaitTimeSeconds: 20
+        WaitTimeSeconds: MAXIMUM_WAIT_TIME_SECONDS
     }).promise();
 
     if (!Messages) {

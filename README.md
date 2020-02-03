@@ -12,7 +12,7 @@ You must have your `AWS` account correctly configured on your machine for `ontop
 
 ## Installation
 ```
-npm install ontopic
+npm install -g ontopic
 ```
 
 ## Usage
@@ -35,5 +35,7 @@ Optional arguments:
   -h, --help            Show this help message and exit.
   -v, --version         Show program's version number and exit.
   -r REGION, --region REGION
-                        AWS region to use. Defaults to eu-central-1.
+                        AWS region to use for the queue. If absent, it will 
+                        be set to the environment variable AWS_DEFAULT_REGION,
+                        AWS_REGION or defaulted to eu-central-1.
 ```

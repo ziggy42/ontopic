@@ -1,4 +1,5 @@
 ![Node.js CI](https://github.com/ziggy42/ontopic/workflows/Node.js%20CI/badge.svg)
+[![NPM version](https://img.shields.io/npm/v/ontopic.svg)](https://www.npmjs.com/package/ontopic)
 
 # ontopic
 

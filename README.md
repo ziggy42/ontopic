@@ -3,7 +3,7 @@
 
 # ontopic
 
-`ontopic` let's you listen to [SNS](https://aws.amazon.com/sns) notifications from you command line.  
+`ontopic` let's you listen to [SNS](https://aws.amazon.com/sns) notifications from your command line.  
 It does so by creating an [SQS](https://aws.amazon.com/sqs) queue subscribed to the topic and polling it. 
 Before the process exits the created resources are removed.  
 
